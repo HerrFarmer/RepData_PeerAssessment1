@@ -13,7 +13,7 @@ data = read.csv(file = './activity/activity.csv', colClasses = c("integer","Date
 ```
 
 
-Load required packages for analysis as well.
+Load required packages.
 
 
 ```r
@@ -55,7 +55,7 @@ dfTotalNumberOfSteps = data %>% group_by(date) %>% summarise(total = sum(steps, 
 
 ```r
 ## Use ggplot to render histogram
-ggplot(dfTotalNumberOfSteps, aes(total)) + geom_histogram(binwidth=2500) + labs(x="Total number of steps", y = "Frequency", title="Histogram of total number of steps per day")
+ggplot(dfTotalNumberOfSteps, aes(total)) + geom_histogram(binwidth=2500) + labs(x="Total number of steps", y = "Frequency", title="Histogram of total number of steps per day (NA removed)")
 ```
 
 ![](PA1_template_files/figure-html/unnamed-chunk-4-1.png) 
@@ -90,7 +90,7 @@ For the average daily activity pattern, we can use the aggregate() function to a
 ## Aggregate steps by interval and use mean as list calulation
 dfAverageDailyActivity = aggregate(steps ~ interval, data = data, FUN = "mean", na.rm = TRUE)
 
-# Uae ggplot to render line chart
+# Use ggplot to render line chart
 ggplot(dfAverageDailyActivity, aes(interval, steps)) + geom_line() + labs(x="Interval", y = "Steps", title="Average steps by interval")
 ```
 
@@ -156,7 +156,7 @@ dfTotalNumberOfStepsCorrected = dfReplacedData %>% group_by(date) %>% summarise(
 
 ```r
 ## Use ggplot to render histogram
-ggplot(dfTotalNumberOfStepsCorrected, aes(total)) + geom_histogram(binwidth=2500) + labs(x="Total number of steps", y = "Frequency", title="Histogram of total number of steps per day")
+ggplot(dfTotalNumberOfStepsCorrected, aes(total)) + geom_histogram(binwidth=2500) + labs(x="Total number of steps", y = "Frequency", title="Histogram of total number of steps per day (NA replaced")
 ```
 
 ![](PA1_template_files/figure-html/unnamed-chunk-10-1.png) 
