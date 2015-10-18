@@ -112,7 +112,7 @@ dfTotalNumberOfStepsCorrected = dfReplacedData %>% group_by(date) %>% summarise(
 ```{r}
 
 ## Use ggplot to render histogram
-ggplot(dfTotalNumberOfStepsCorrected, aes(total)) + geom_histogram(binwidth=2500) + labs(x="Total number of steps", y = "Frequency", title="Histogram of total number of steps per day (NA replaced")
+ggplot(dfTotalNumberOfStepsCorrected, aes(total)) + geom_histogram(binwidth=2500) + labs(x="Total number of steps", y = "Frequency", title="Histogram of total number of steps per day (NA replaced)")
 
 mean(dfTotalNumberOfStepsCorrected$total)
 median(dfTotalNumberOfStepsCorrected$total)
